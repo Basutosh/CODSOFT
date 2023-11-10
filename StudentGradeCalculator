@@ -1,0 +1,38 @@
+import java.util.*;
+public class Grade_Calculater{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("How many subjects do you have?");
+        int numSub = sc.nextInt();
+        double totalMarks = 0;
+
+        for(int i = 1; i<=numSub; i++){
+            System.out.print("Enter your marks "+i+": ");
+            double subMarks = sc.nextDouble();
+            totalMarks += subMarks;
+        }
+        double avPercentage = (totalMarks/(numSub*100))*100;
+        char grade = calGrade(avPercentage);
+
+        System.out.println("Your Tatal Marks: "+totalMarks);
+        System.out.println("Your Average Percentage: "+avPercentage);
+        System.out.println("Your Grade: "+grade);
+
+     
+
+    }
+    public static char calGrade(double percentage){
+        if(percentage >= 90){
+            return 'A';
+        }else if(percentage >= 80){
+            return 'B';
+        }else if(percentage >= 70){
+            return 'C';
+        }else if(percentage >= 60){
+            return 'D';
+        }else{
+            return 'F';
+        }
+    }
+}
